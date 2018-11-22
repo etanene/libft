@@ -14,22 +14,22 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
+	char	*new_dst;
+	char	*new_src;
 
 	if (dst <= src)
 	{
-		i = 0;
-		while (i < len)
-		{
-			*((char*)dst + i) = *((char*)src + i);
-			i++;
-		}
+		new_dst = (char*)dst;
+		new_src = (char*)src;
+		while (len--)
+			*new_dst++ = *new_src++;
 	}
 	else
 	{
-		i = len;
-		while (i--)
-			*((char*)dst + i) = *((char*)src + i);
+		new_dst = (char*)dst + len - 1;
+		new_src = (char*)src + len - 1;
+		while (len--)
+			*new_dst-- = *new_src--;
 	}
 	return (dst);
 }
