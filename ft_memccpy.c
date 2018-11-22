@@ -24,9 +24,9 @@ void	*ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n)
 	{
 		*new_dst = *new_src;
 		if (*new_src == c)
-			break;
+			return (new_dst + 1);
 		new_dst++;
 		new_src++;
 	}
-	return (dst);
+	return (NULL);
 }
