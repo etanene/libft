@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 #include <errno.h>
 
 char	*ft_strdup(const char *s1)
