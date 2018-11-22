@@ -18,13 +18,10 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	char	*new_dst;
 
 	new_dst = dst;
+	while (len && (*new_dst++ = *src++))
+		len--;
 	if (len)
-	{
-		while (*src && --len)
-			*new_dst++ = *src++;
-		*new_dst++ = *src++;
-		if (len)
-			*new_dst = '\0';
-	}
+		while (--len)
+			*new_dst++ = '\0';
 	return (dst);
 }
