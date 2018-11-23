@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afalmer- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/22 19:31:51 by afalmer-          #+#    #+#             */
-/*   Updated: 2018/11/22 19:31:52 by afalmer-         ###   ########.fr       */
+/*   Created: 2018/11/23 19:42:43 by afalmer-          #+#    #+#             */
+/*   Updated: 2018/11/23 19:42:45 by afalmer-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
+int		ft_atoi(const char *str)
 {
-	size_t	dst_size;
+	int		res;
+	int		sign;
 
-	dst_size = ft_strlen(dst);
-	if (size < dst_size)
-		return (size + ft_strlen(src));
-	while (*dst)
-		dst++;
-	while (*src && size - 1 > dst_size)
+	res = 0;
+	sign = 1;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
 	{
-		*dst++ = *src++;
-		dst_size++;
+		sign = -1;
+		str++;
 	}
-	*dst = '\0';
-	return (dst_size + ft_strlen(src));
+	else if (*str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+		res = res * 10 + (*str++ - '0');
+	return (res * sign);
 }
