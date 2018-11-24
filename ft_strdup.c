@@ -19,7 +19,7 @@ char	*ft_strdup(const char *s1)
 	char	*res;
 	char	*p;
 
-	if((res = (char*)malloc(sizeof(char) * ft_strlen(s1) + 1)) == NULL)
+	if ((res = (char*)malloc(sizeof(char) * ft_strlen(s1) + 1)) == NULL)
 	{
 		errno = ENOMEM;
 		return (NULL);

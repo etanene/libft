@@ -18,7 +18,7 @@ char	*ft_strstr(const char *haystack, const char *needle)
 
 	if (!*needle)
 		return ((char*)haystack);
-	while (*haystack != *needle)
+	while (*haystack && *haystack != *needle)
 		haystack++;
 	res_hs = (char*)haystack;
 	while (*haystack++ == *needle++)
