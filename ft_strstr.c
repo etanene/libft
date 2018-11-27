@@ -15,15 +15,25 @@
 char	*ft_strstr(const char *haystack, const char *needle)
 {
 	char	*res_hs;
+	char	*new_hs;
+	char	*new_needle;
 
 	if (!*needle)
 		return ((char*)haystack);
-	while (*haystack && *haystack != *needle)
+	while (*haystack)
+	{
+		new_hs = (char*)haystack;
+		res_hs = (char*)haystack;
+		new_needle = (char*)needle;
+		while (*new_hs && *new_hs == *new_needle)
+		{
+			new_hs++;
+			new_needle++;
+		}
+		if (!*new_needle)
+			break;
+		res_hs = NULL;
 		haystack++;
-	res_hs = (char*)haystack;
-	while (*haystack++ == *needle++)
-		;
-	if (!*(needle - 1))
-		return (res_hs);
-	return (NULL);
+	}
+	return (res_hs);
 }
