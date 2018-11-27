@@ -33,7 +33,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			new_needle++;
 		}
 		if (!*new_needle)
-			break;
+			break ;
 		res_hs = NULL;
 		haystack++;
 	}
