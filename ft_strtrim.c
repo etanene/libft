@@ -22,10 +22,9 @@ char	*ft_strtrim(char const *s)
 	s_end = (char*)s + ft_strlen(s) - 1;
 	while (*s == ' ' || *s == '\n' || *s == '\t')
 		s++;
-	while (*s_end == ' ' || *s_end == '\n' || *s_end == '\t')
+	while ((*s_end == ' ' || *s_end == '\n' || *s_end == '\t') && \
+											(s_end - s) != -1)
 		s_end--;
-	if (s_end < s)
-		return (NULL);
 	if ((res = ft_strnew(s_end - s + 1)) == NULL)
 		return (NULL);
 	res = ft_strncpy(res, s, s_end - s + 1);
