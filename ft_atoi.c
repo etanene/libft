@@ -14,21 +14,26 @@
 
 int		ft_atoi(const char *str)
 {
-	int		res;
-	int		sign;
+	long long	res;
+	int			sign;
 
 	res = 0;
 	sign = 1;
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-')
-	{
 		sign = -1;
-		str++;
-	}
-	else if (*str == '+')
+	else if (*str == '+' || *str == '-')
 		str++;
 	while (*str >= '0' && *str <= '9')
+	{
 		res = res * 10 + (*str++ - '0');
-	return (res * sign);
+		if (res < 0)
+		{
+			if (sign < 0)
+				return (0);
+			return (-1);
+		}
+	}
+	return ((int)(res * sign));
 }

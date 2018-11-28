@@ -22,7 +22,7 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	while (n--)
 	{
 		*new_dst = *new_src;
-		if (*new_src == c)
+		if (*new_src == (unsigned char)c)
 			return (new_dst + 1);
 		new_dst++;
 		new_src++;

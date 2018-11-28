@@ -24,25 +24,22 @@ static int	ft_numlen(int n)
 
 char		*ft_itoa(int n)
 {
-	char	*res;
-	char	*new_res;
-	int		sign;
-	int		len;
+	char			*res;
+	char			*new_res;
+	int				sign;
+	int				len;
+	unsigned int	num;
 
-	len = ft_numlen(n);
-	sign = 0;
-	if (n < 0)
-	{
-		sign = 1;
-		n = -n;
-	}
+	num = n < 0 ? -n : n;
+	sign = n < 0 ? 1 : 0;
+	len = ft_numlen(num);
 	if ((res = ft_strnew(len + sign)) == NULL)
 		return (NULL);
 	new_res = res + len + sign - 1;
 	while (len--)
 	{
-		*new_res-- = n % 10 + '0';
-		n /= 10;
+		*new_res-- = num % 10 + '0';
+		num /= 10;
 	}
 	if (sign)
 		*new_res = '-';
