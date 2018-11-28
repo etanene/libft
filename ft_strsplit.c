@@ -34,7 +34,7 @@ static int	ft_count_words(const char *str, char sep)
 	return (count);
 }
 
-static int	ft_wordlen(const char *s, char c)
+static int	ft_wlen(const char *s, char c)
 {
 	char	*new_s;
 
@@ -63,8 +63,9 @@ char		**ft_strsplit(char const *s, char c)
 	char	**words;
 	char	**new_words;
 	char	*new_s;
-	int		wordlen;
 
+	if (!s)
+		return (NULL);
 	new_s = (char*)s;
 	if (!(words = (char**)malloc(sizeof(char*) * (ft_count_words(s, c) + 1))))
 		return (NULL);
@@ -75,12 +76,11 @@ char		**ft_strsplit(char const *s, char c)
 			new_s++;
 		if (*new_s)
 		{
-			wordlen = ft_wordlen(new_s, c);
-			if (!(*new_words++ = ft_strsub(s, new_s - s, wordlen)))
+			if (!(*new_words++ = ft_strsub(s, new_s - s, ft_wlen(new_s, c))))
 				ft_freewords(&words);
 			else
 				*new_words = NULL;
-			new_s = new_s + wordlen;
+			new_s = new_s + ft_wlen(new_s, c);
 		}
 	}
 	return (words);

@@ -19,7 +19,10 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 
 	i = 0;
-	res = ft_strnew(ft_strlen(s));
+	if (!f || !s)
+		return (NULL);
+	if ((res = ft_strnew(ft_strlen(s))) == NULL)
+		return (NULL);
 	new_res = res;
 	while (*s)
 		*new_res++ = f(i++, *s++);

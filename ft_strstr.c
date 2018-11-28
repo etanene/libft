@@ -18,7 +18,7 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	char	*new_hs;
 	char	*new_needle;
 
-	if (!*needle)
+	if (!*needle || !*haystack)
 		return ((char*)haystack);
 	while (*haystack)
 	{
