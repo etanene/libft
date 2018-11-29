@@ -20,12 +20,13 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 
 	if (lst && f)
 	{
+		temp = lst;
 		res = temp;
 		while (lst)
 		{
 			if (((temp = f(lst))) == NULL)
 			{
-				ft_free_list(&temp);
+				//ft_free_list(&temp);
 				return (NULL);
 			}
 			lst = lst->next;
