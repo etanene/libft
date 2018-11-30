@@ -18,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	if ((res = ft_strnew(ft_strlen(s1) + ft_strlen(s2))) == NULL)
+	if ((res = (char*)ft_memalloc(ft_strlen(s1) + ft_strlen(s2) + 1)) == NULL)
 		return (NULL);
 	res = ft_strcpy(res, s1);
 	res = ft_strcat(res, s2);
