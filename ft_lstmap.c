@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static void	ft_lstdel_content(void	*content, size_t size)
+static void	ft_lstdel_content(void *content, size_t size)
 {
 	if (content && size)
 	{

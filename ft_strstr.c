@@ -20,6 +20,7 @@ char	*ft_strstr(const char *haystack, const char *needle)
 
 	if (!*needle)
 		return ((char*)haystack);
+	res_hs = NULL;
 	while (*haystack)
 	{
 		new_hs = (char*)haystack;
