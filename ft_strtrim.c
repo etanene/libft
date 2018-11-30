@@ -25,8 +25,8 @@ char	*ft_strtrim(char const *s)
 	while ((*s_end == ' ' || *s_end == '\n' || *s_end == '\t') && \
 											(s_end - s) != 0)
 		s_end--;
-	if ((res = ft_strnew(s_end - s + 1)) == NULL)
+	if ((res = ft_strnew(s_end - s)) == NULL)
 		return (NULL);
-	res = ft_strncpy(res, s, s_end - s + 1);
+	res = ft_strncpy(res, s, s_end - s);
 	return (res);
 }
