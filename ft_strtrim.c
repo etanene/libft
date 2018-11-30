@@ -23,10 +23,10 @@ char	*ft_strtrim(char const *s)
 	while (*s == ' ' || *s == '\n' || *s == '\t')
 		s++;
 	while ((*s_end == ' ' || *s_end == '\n' || *s_end == '\t') && \
-											(s_end - s) != 0)
+											(s_end - s) != -1)
 		s_end--;
-	if ((res = ft_strnew(s_end - s)) == NULL)
+	if ((res = (char*)ft_memalloc(s_end - s + 2)) == NULL)
 		return (NULL);
-	res = ft_strncpy(res, s, s_end - s);
+	res = ft_strncpy(res, s, s_end - s + 1);
 	return (res);
 }
