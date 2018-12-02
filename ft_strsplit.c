@@ -46,11 +46,11 @@ static int	ft_wlen(const char *s, char c)
 
 static void	ft_freewords(char ***words)
 {
-	if (**words)
+	if (*words)
 	{
 		while (**words)
 		{
-			ft_strdel(*words);
+			free(**words);
 			(*words)++;
 		}
 		free(*words);
@@ -79,9 +79,10 @@ char		**ft_strsplit(char const *s, char c)
 			if (!(*new_words++ = ft_strsub(s, new_s - s, ft_wlen(new_s, c))))
 				ft_freewords(&words);
 			else
-				*new_words = NULL;
-			new_s = new_s + ft_wlen(new_s, c);
+				new_s = new_s + ft_wlen(new_s, c);
 		}
 	}
+	if (words)
+		*new_words = NULL;
 	return (words);
 }
